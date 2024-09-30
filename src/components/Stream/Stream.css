@@ -8,7 +8,7 @@
     min-height: calc(100vh - 160px); /* Adjust based on Navbar and Footer height */
   }
   
-  .stream-container h2 {
+  .stream-container h2 {    
     font-size: 2rem;
     color: #f39c12;
     margin-bottom: 20px;

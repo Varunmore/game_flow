@@ -3,23 +3,38 @@
 .library-section {
   padding: 20px;
   background-color: #000000;
+  align-items: center;
+  justify-content: center;
+}
+
+.library-section p {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: 500;
+  font-style: bold;
 }
 
 .category-filters {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center
 }
 
 .filter-button {
   margin-right: 10px;
   padding: 10px 15px;
   border: none;
-  background-color: #007bff;
-  color: white;
+  background-color: #ff7b00;
+  color: rgb(0, 0, 0);
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center
 }
 
 .filter-button:hover {
@@ -27,13 +42,13 @@
 }
 
 .filter-button.active {
-  background-color: #0056b3;
+  background-color: #ffffff;
 }
 
 .game-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
+  gap: 20px;
 }
 
 .game-item {

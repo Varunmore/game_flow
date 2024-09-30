@@ -9,6 +9,7 @@ const categories = [
   { id: 3, name: 'Adventure' },
   { id: 4, name: 'Racing' },
   { id: 5, name: 'Role-Playing' },
+  { id: 6, name: 'Casual' },
 ];
 
 // Sample game data
@@ -19,6 +20,18 @@ const games = [
   { id: 4, name: 'God Of War', poster: '/images/godofwar.jpeg', category: 'Adventure' },
   { id: 5, name: 'Assassin Creed Valhalla', poster: '/images/assain.jpg', category: 'Adventure' },
   { id: 6, name: 'Max Payne 3', poster: '/images/maxpayne.jpg', category: 'Action' },
+  { id: 7, name: 'Call Of Duty: Black Ops 2', poster: '/images/codblack2.jpg', category: 'Action' },
+  { id: 8, name: 'Froza Horizan 4', poster: '/images/froza.jpg', category: 'Racing' },
+  { id: 9, name: 'BattleField 2024', poster: '/images/battlefield.jpg', category: 'Action' },
+  { id: 10, name: 'Ben 10: Power Trip', poster: '/images/ben10.jpeg', category: 'Adventure' },
+  { id: 11, name: 'F1 23', poster: '/images/f1.jpg', category: 'Racing' },
+  { id: 12, name: 'Way Out', poster: '/images/wayout.jpeg', category: 'Adventure' },
+  { id: 13, name: 'Cities Skyline 2', poster: '/images/cities.jpg', category: 'Casual' },
+  { id: 14, name: 'DIRT 5', poster: '/images/dirt5.jpeg', category: 'Racing' },
+  { id: 15, name: 'My Firend Peppa Pig', poster: '/images/pig.jpg', category: 'Casual' },
+  { id: 16, name: 'SpongeBob SquarePants', poster: '/images/bob.jpg', category: 'Casual' },
+  { id: 17, name: 'Sea Of Thieves', poster: '/images/sea.jpg', category: 'Adventure' },
+  { id: 18, name: 'Bluey The VideoGame', poster: '/images/bluey.jpeg', category: 'Casual' },
 ];
 
 const Library = () => {
@@ -31,8 +44,7 @@ const Library = () => {
 
   return (
     <section className="library-section">
-      <h2>Game Library</h2>
-      <p>Explore our extensive collection of games available for streaming.</p>
+      <p>Explore Our Extensive Collection Of Games Available For Streaming.</p>
 
       {/* Category Filters */}
       <div className="category-filters">

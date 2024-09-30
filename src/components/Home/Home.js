@@ -35,6 +35,31 @@ const games = [
     name: 'Max Payne 3',
     poster: '/images/maxpayne.jpg',
   },
+  {
+    id: 7,
+    name: 'Call Of Duty: Black Ops 2',
+    poster: '/images/codblack2.jpg',
+  },
+  {
+    id: 8,
+    name: 'Froza Horizan 4',
+    poster: '/images/froza.jpg',
+  },
+  {
+    id: 9,
+    name: 'BattelField 2024',
+    poster: '/images/battlefield.jpg',
+  },
+  {
+    id: 10,
+    name: 'Ben 10: Power Trip',
+    poster: '/images/ben10.jpeg',
+  },
+  {
+    id: 11,
+    name: 'F1 23',
+    poster: '/images/f1.jpg',
+  },
 ];
 
 const Home = () => {
