@@ -1,0 +1,61 @@
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1f1f1f;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f39c12; /* Orange color */
+}
+
+.navbar-links a {
+  color: #f39c12; /* Orange color for links */
+  margin: 0 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #ffffff;
+}
+
+.navbar-auth .btn {
+  margin-left: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-login {
+  background-color: transparent;
+  color: #f39c12;
+  border: 2px solid #f39c12;
+}
+
+.btn-login:hover {
+  background-color: #f39c12;
+  color: #121212;
+}
+
+.btn-signup {
+  background-color: #f39c12;
+  color: #121212;
+  border: none;
+}
+
+.btn-signup:hover {
+  background-color: #e67e22;
+}

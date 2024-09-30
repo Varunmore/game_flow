@@ -1,0 +1,29 @@
+/* Contact.css */
+
+/* Reuse styles from Home.css */
+.contact-section {
+    padding: 40px 20px;
+    background-color: #1f1f1f;
+    margin: 30px 0;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .contact-section h2 {
+    font-size: 2rem;
+    color: #f39c12;
+    margin-bottom: 20px;
+  }
+  
+  .contact-section p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .contact-section a {
+    color: #f39c12;
+    text-decoration: underline;
+  }
+  

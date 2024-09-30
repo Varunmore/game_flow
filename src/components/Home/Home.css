@@ -1,0 +1,233 @@
+/* Home.css */
+
+/* General styles */
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  background: url('/public/images/hero-background.jpg') no-repeat center center/cover;
+  position: relative;
+}
+
+.hero-content {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  color: #f39c12;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.hero-buttons .btn {
+  margin: 0 10px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: #f39c12;
+  color: #121212;
+}
+
+.btn-primary:hover {
+  background-color: #e67e22;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #121212;
+}
+
+.btn-secondary:hover {
+  background-color: #bdc3c7;
+}
+
+/* Featured Games Section */
+.game-library {
+  margin: 50px auto;
+  text-align: center;
+  max-width: 2000px;
+  padding: 0 10px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #f39c12;
+  margin-bottom: 40px;
+}
+
+.game-list {
+  display: flexbox; /* Change to flexbox for horizontal layout */
+  justify-content: center; /* Center the items horizontally */
+  flex-wrap: wrap; /* Prevent wrapping to keep items in one line */
+  gap: 10px; /* Space between game items */
+}
+
+.game-item {
+  background-color: #626262;
+  padding: 0px;
+  border-radius: 10px;
+  width: 220px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.game-poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.game-name {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-stream {
+  background-color: #f39c12;
+  color: #121212;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-stream:hover {
+  background-color: #e67e22;
+}
+
+/* About and Contact Sections */
+.about-section, 
+.contact-section {
+  padding: 40px 20px;
+  background-color: #1f1f1f;
+  margin: 30px 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.about-section h2, 
+.contact-section h2 {
+  font-size: 2rem;
+  color: #f39c12;
+  margin-bottom: 20px;
+}
+
+.about-section p, 
+.contact-section p {
+  font-size: 1.1rem;
+  color: #ffffff;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f39c12;
+}
+
+.swiper-pagination-bullet-active {
+  background: #f39c12;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-section {
+    height: 70vh;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1.2rem;
+  }
+
+  .game-item {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 60vh;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .game-item {
+    width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 50vh;
+  }
+
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-section p {
+    font-size: 0.9rem;
+  }
+
+  .game-item {
+    width: 180px;
+  }
+
+  .navbar-links {
+    display: none; /* Hide navbar links on small screens */
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-auth {
+    margin-top: 10px;
+  }
+}
