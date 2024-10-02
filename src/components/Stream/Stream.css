@@ -15,11 +15,12 @@
   }
   
   .stream-poster {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
+    width: 500px;
+    height: 500px;
+    object-fit: fill;
+    border-radius: 20px;
     margin-bottom: 20px;
+    margin-left: 100px;
   }
   
   .game-player {

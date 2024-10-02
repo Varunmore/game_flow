@@ -25,7 +25,7 @@
 
 .filter-button {
   margin-right: 10px;
-  padding: 10px 15px;
+  padding: 10px 20px;
   border: none;
   background-color: #ff7b00;
   color: rgb(0, 0, 0);
@@ -48,7 +48,10 @@
 .game-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  gap: 15px;
+  width: 1400px;
+  padding: 0px 100px;
+  padding-left: 250px;
 }
 
 .game-item {

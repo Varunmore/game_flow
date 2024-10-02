@@ -55,11 +55,6 @@ const games = [
     name: 'Ben 10: Power Trip',
     poster: '/images/ben10.jpeg',
   },
-  {
-    id: 11,
-    name: 'F1 23',
-    poster: '/images/f1.jpg',
-  },
 ];
 
 const Home = () => {
@@ -74,7 +69,7 @@ const Home = () => {
       >
         <div className="hero-content">
           <h1>Welcome to GameShow</h1>
-          <p>Your ultimate destination for cloud gaming.</p>
+          <p>Your Ultimate Destination For Cloud Gaming.</p>
           <div className="hero-buttons">
             <Link to="/signup" className="btn btn-primary">Get Started</Link>
             <Link to="/library" className="btn btn-secondary">Browse Games</Link>
