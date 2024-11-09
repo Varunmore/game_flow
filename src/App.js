@@ -8,7 +8,8 @@ import Contact from './components/Contact/Contact';
 import Library from './components/Library/Library';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
-import Stream from './components/Stream/Stream'; // Assume you have a Stream component
+import Stream from './components/Stream/Stream';
+import Subscription from './components/Subscripation/Subscription'; // Assume you have a Stream component
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/stream/:gameId" element={<Stream />} />
+          <Route path='/subscription' element={<Subscription />} />
           {/* Add more routes as needed */}
         </Routes>
         <Footer />

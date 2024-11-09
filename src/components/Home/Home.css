@@ -164,11 +164,11 @@
 /* Swiper Navigation Buttons */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #f39c12;
+  color: #ff7b00;
 }
 
 .swiper-pagination-bullet-active {
-  background: #f39c12;
+  background: #ff7b00;
 }
 
 /* Responsive Design */

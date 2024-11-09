@@ -14,11 +14,11 @@
 .navbar-logo a {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #f39c12; /* Orange color */
+  color: #ff7b00; /* Orange color */
 }
 
 .navbar-links a {
-  color: #f39c12; /* Orange color for links */
+  color: #ff7b00; /* Orange color for links */
   margin: 0 15px;
   text-transform: uppercase;
   font-weight: bold;
@@ -41,21 +41,21 @@
 
 .btn-login {
   background-color: transparent;
-  color: #f39c12;
-  border: 2px solid #f39c12;
+  color: #ff7b00;
+  border: 2px solid #ff7b00;
 }
 
 .btn-login:hover {
-  background-color: #f39c12;
+  background-color: #ff7b00;
   color: #121212;
 }
 
 .btn-signup {
-  background-color: #f39c12;
+  background-color: #ff7b00;
   color: #121212;
   border: none;
 }
 
 .btn-signup:hover {
-  background-color: #e67e22;
+  background-color: #ff7b00;
 }
