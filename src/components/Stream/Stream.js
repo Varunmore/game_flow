@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import './Stream.css';
+import { io } from 'socket.io-client';
 
-// Sample game data (can be fetched from an API)
 const games = [
   {
     id: 1,
-    name: 'Counter Strike',
-    poster: '/images/CS.jpg',
-    description: 'A tactical first-person shooter.',
   },
   {
     id: 2,
@@ -22,12 +19,53 @@ const games = [
     poster: '/images/nfspayback.jpg',
     description: 'A high-octane racing game.',
   },
-  // Add more games as needed
 ];
 
 const Stream = () => {
   const { gameId } = useParams();
   const game = games.find((g) => g.id === parseInt(gameId));
+  const videoRef = useRef(null);
+  const containerRef = useRef(null); // Reference to the container for fullscreen
+
+  useEffect(() => {
+    if (game) {
+      const socket = io("ws://52.66.212.222:8000/ws/stream"); // Adjust WebSocket server URL
+
+      socket.on("connect", () => {
+        console.log("Connected to WebSocket server");
+        socket.emit("join", { gameId });
+      });
+
+      socket.on("offer", async (offer) => {
+        const peerConnection = new RTCPeerConnection();
+        peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
+
+        peerConnection.ontrack = (event) => {
+          if (videoRef.current) {
+            videoRef.current.srcObject = event.streams[0];
+          }
+        };
+
+        const answer = await peerConnection.createAnswer();
+        await peerConnection.setLocalDescription(answer);
+        socket.emit("answer", answer);
+      });
+
+      return () => {
+        socket.disconnect();
+      };
+    }
+  }, [gameId]);
+
+  const handleFullscreen = () => {
+    if (containerRef.current) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        containerRef.current.requestFullscreen();
+      }
+    }
+  };
 
   if (!game) {
     return (
@@ -39,23 +77,17 @@ const Stream = () => {
   }
 
   return (
-    <div className="stream-container">
+    <div className="stream-container" ref={containerRef}>
       <h2>{game.name}</h2>
-      <img src={game.poster} alt={game.name} className="stream-poster" />
       <p>{game.description}</p>
-      {/* Embed your game streaming player here */}
       <div className="game-player">
-        <iframe
-          src="https://example.com/stream" // Replace with actual streaming URL
-          title="Game Stream"
-          width="800"
-          height="450"
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
+        <video ref={videoRef} width="100%" height="auto" autoPlay playsInline controls />
+        <button onClick={handleFullscreen} className="fullscreen-button">
+          Toggle Fullscreen
+        </button>
       </div>
     </div>
   );
 };
 
-export default Stream; 
+export default Stream;
