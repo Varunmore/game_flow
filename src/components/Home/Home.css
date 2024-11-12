@@ -1,240 +1,159 @@
-/* Home.css */
-
-/* General styles */
-.home {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* Body Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 /* Hero Section */
 .hero-section {
+  background: linear-gradient(135deg, #0d0c1d, #3a3a3a);
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 110vh;
-  background: url('/public/images/hero-background1.jpg') no-repeat center center/cover;
+  height: 60vh;
+  overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
-.hero-content {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 500px;
-  border-radius: 10px;
+.hero-section::before {
+  content: '';
+  background: url('/public/images/hero-background1.jpg') no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.2;
+  z-index: -1;
 }
 
-.hero-section h1 {
-  font-size: 4.5rem;
-  color: #ec7215;
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #ddd;
   margin-bottom: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding: 10px;
-}
-
-.hero-section p {
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin-bottom: 30px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .hero-buttons .btn {
-  margin: 0 10px;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 5px;
   font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .btn-primary {
-  background-color: #ff7b00;
-  color: #121212;
+  background-color: #ff4500;
+  color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: #ff7b00;
+  background-color: #e03e00;
 }
 
 .btn-secondary {
-  background-color: #ffffff;
-  color: #121212;
+  background-color: #00aaff;
+  color: #fff;
 }
 
 .btn-secondary:hover {
-  background-color: #bdc3c7;
+  background-color: #0088cc;
 }
 
-/* Featured Games Section */
-.game-library {
-  margin: 50px auto;
+/* Carousel */
+.carousel {
+  padding: 40px 0;
   text-align: center;
-  max-width: 2000px;
-  padding: 0 100px;
+  background-color: #000000;
 }
 
-.section-title {
+.carousel .section-title {
   font-size: 2.5rem;
+  margin-bottom: 20px;
   color: #ff7b00;
-  margin-bottom: 40px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.game-list {
-  display: flex; /* Change to flexbox for horizontal layout */
-  justify-content: center; /* Center the items horizontally */
-  flex-wrap: nowrap; /* Prevent wrapping to keep items in one line */
-  gap: 10px; /* Space between game items */
-  width: 1200px;
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
 }
 
-.game-item {
-  background-color: #626262;
-  padding: 0px;
+.carousel-item {
+  scroll-snap-align: start;
+  min-width: 250px;
+  margin: 0 10px;
+  background-color: #0a0a0a;
   border-radius: 20px;
-  width: 220px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  transition: transform 0.3s ease;
 }
 
-.game-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+.carousel-item:hover {
+  transform: scale(1.05);
 }
 
 .game-poster {
   width: 100%;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 5px;
+  border-radius: 0px;
 }
 
 .game-name {
-  font-size: 10px;
+  font-size: 1.2rem;
   color: #ffffff;
-  margin-bottom: 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 10px;
 }
 
 .btn-stream {
-  background-color: #ff7b00;
-  color: #121212;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: #28a745;
+  color: #fff;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .btn-stream:hover {
-  background-color: #ff7b00;
+  background-color: #218838;
 }
 
 /* About and Contact Sections */
-.about-section, 
-.contact-section {
+.about-section, .contact-section {
   padding: 40px 20px;
-  background-color: #1f1f1f;
-  margin: 30px 0;
-  border-radius: 10px;
   text-align: center;
+  color: #444;
 }
 
-.about-section h2, 
-.contact-section h2 {
+.about-section h2, .contact-section h2 {
   font-size: 2rem;
-  color: #ff7b00;
-  margin-bottom: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 15px;
 }
 
-.about-section p, 
-.contact-section p {
+.about-section p, .contact-section p {
   font-size: 1.1rem;
-  color: #ffffff;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* Swiper Navigation Buttons */
-.swiper-button-next,
-.swiper-button-prev {
-  color: #ff7b00;
+.contact-section a {
+  color: #00aaff;
+  text-decoration: none;
 }
 
-.swiper-pagination-bullet-active {
-  background: #ff7b00;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .hero-section {
-    height: 70vh;
-  }
-
-  .hero-section h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-section p {
-    font-size: 1.2rem;
-  }
-
-  .game-item {
-    width: 200px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    height: 60vh;
-  }
-
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-
-  .hero-section p {
-    font-size: 1rem;
-  }
-
-  .game-item {
-    width: 250px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    height: 50vh;
-  }
-
-  .hero-section h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero-section p {
-    font-size: 0.9rem;
-  }
-
-  .game-item {
-    width: 180px;
-  }
-
-  .navbar-links {
-    display: none; /* Hide navbar links on small screens */
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar-auth {
-    margin-top: 10px;
-  }
+.contact-section a:hover {
+  color: #0088cc;
 }

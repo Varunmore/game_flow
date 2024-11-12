@@ -28,10 +28,8 @@ const games = [
   { id: 12, name: 'Way Out', poster: '/images/wayout.jpeg', category: 'Adventure' },
   { id: 13, name: 'Cities Skyline 2', poster: '/images/cities.jpg', category: 'Casual' },
   { id: 14, name: 'DIRT 5', poster: '/images/dirt5.jpeg', category: 'Racing' },
-  { id: 15, name: 'My Firend Peppa Pig', poster: '/images/pig.jpg', category: 'Casual' },
-  { id: 16, name: 'SpongeBob SquarePants', poster: '/images/bob.jpg', category: 'Casual' },
-  { id: 17, name: 'Sea Of Thieves', poster: '/images/sea.jpg', category: 'Adventure' },
-  { id: 18, name: 'Bluey The VideoGame', poster: '/images/bluey.jpeg', category: 'Casual' },
+  { id: 15, name: 'SpongeBob SquarePants', poster: '/images/bob.jpg', category: 'Casual' },
+  { id: 16, name: 'Sea Of Thieves', poster: '/images/sea.jpg', category: 'Adventure' }
 ];
 
 const Library = () => {

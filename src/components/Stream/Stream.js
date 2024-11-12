@@ -55,7 +55,7 @@ const Stream = () => {
         socket.disconnect();
       };
     }
-  }, [gameId]);
+  }, [game, gameId]);
 
   const handleFullscreen = () => {
     if (containerRef.current) {
