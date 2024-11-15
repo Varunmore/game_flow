@@ -17,6 +17,7 @@ const games = [
 const Home = () => {
   return (
     <div className="home">
+      {/* Hero Section */}
       <motion.header
         className="hero-section"
         initial={{ opacity: 0 }}
@@ -24,7 +25,7 @@ const Home = () => {
         transition={{ duration: 1 }}
       >
         <div className="hero-content">
-          <h1>Welcome to GameShow</h1>
+          <h1>Welcome to GameFlow</h1>
           <p>Your Ultimate Destination for Cloud Gaming</p>
           <div className="hero-buttons">
             <Link to="/signup" className="btn btn-primary">Get Started</Link>
@@ -33,11 +34,12 @@ const Home = () => {
         </div>
       </motion.header>
 
+      {/* Featured Games Carousel */}
       <div className="carousel">
         <h2 className="section-title">Featured Games</h2>
         <div className="carousel-track">
-          {[...games, ...games].map((game, index) => (
-            <div key={index} className="carousel-item">
+          {games.map((game) => (
+            <div key={game.id} className="carousel-item">
               <img src={game.poster} alt={game.name} className="game-poster" />
               <h3 className="game-name">{game.name}</h3>
               <Link to={`/stream/${game.id}`} className="btn btn-stream">Play Now</Link>
@@ -46,14 +48,16 @@ const Home = () => {
         </div>
       </div>
 
+      {/* About Section */}
       <section className="about-section">
         <h2>About Us</h2>
-        <p>GameShow is transforming the gaming experience by delivering high-quality cloud gaming without expensive hardware. Play free as much as you like until you need to upgrade.</p>
+        <p>GameShow is transforming the gaming experience by delivering high-quality cloud gaming without expensive hardware.Play free as much as you like until you need to upgrade.</p>
       </section>
 
+      {/* Contact Section */}
       <section className="contact-section">
         <h2>Contact Us</h2>
-        <p>Have questions? Reach out to us at <a href="mailto:contact@gameshow.com">contact@gameshow.com</a>.</p>
+        <p>Have questions? Reach out to us at <a href="mailto:contact@gameshow.com">contact@gameflow.com</a>.</p>
       </section>
     </div>
   );
