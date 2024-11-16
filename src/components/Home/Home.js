@@ -40,9 +40,7 @@ const Home = () => {
         <div className="carousel-track">
           {games.map((game) => (
             <div key={game.id} className="carousel-item">
-              <img src={game.poster} alt={game.name} className="game-poster" />
-              <h3 className="game-name">{game.name}</h3>
-              <Link to={`/stream/${game.id}`} className="btn btn-stream">Play Now</Link>
+              <Link to={`/game/${game.id}`}>< img src={game.poster} alt={game.name} className="game-poster" /></Link>
             </div>
           ))}
         </div>

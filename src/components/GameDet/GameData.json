@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "title": "Counter-Strike: Global Offensive",
+      "description": "A multiplayer first-person shooter that pits players against each other in team-based combat.",
+      "genre": "Shooter",
+      "releaseDate": "August 21, 2012",
+      "rating": "9/10",
+      "coverImage": "/images/CS.jpg",
+      "developer": "Valve",
+      "publisher": "Valve",
+      "screenshots": [
+        "/images/csgo-1.jpg",
+        "/images/csgo-2.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Far Cry 6",
+      "description": "An open-world action-adventure game set in a fictional tropical paradise.",
+      "genre": "Action-Adventure",
+      "releaseDate": "October 7, 2021",
+      "rating": "8.5/10",
+      "coverImage": "/images/farcry.jpg",
+      "developer": "Ubisoft",
+      "publisher": "Ubisoft",
+      "screenshots": [
+        "/images/farcry6-1.jpg",
+        "/images/farcry6-2.jpg"
+      ]
+    }
+  ]
+  

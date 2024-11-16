@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Stream from './components/Stream/Stream';
 import Subscription from './components/Subscripation/Subscription'; // Assume you have a Stream component
+import GameDetails from './components/GameDet/Gamescard';
 
 const App = () => {
   return (
@@ -25,6 +26,8 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/stream/:gameId" element={<Stream />} />
           <Route path='/subscription' element={<Subscription />} />
+          <Route path="/subscription" element={<Subscription />} />
+          <Route path="/game/:gameId" element={<GameDetails />} />
           {/* Add more routes as needed */}
         </Routes>
         <Footer />
