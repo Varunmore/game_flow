@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth, setupRecaptcha } from "../Firebase/Firebase";
+import { auth, setupRecaptcha } from "../Firebase/Firebase.config";
 import { signInWithPhoneNumber } from "firebase/auth";
 import './Signup.css';
 
@@ -17,8 +17,10 @@ const Signup = () => {
       setErrorMessage("Please enter a valid 10-digit mobile number.");
       return;
     }
+
     try {
       setupRecaptcha("recaptcha-container");
+      console.log("Recaptcha initialized.");
       const confirmationResult = await signInWithPhoneNumber(
         auth,
         `+91${mobile}`,
@@ -26,11 +28,23 @@ const Signup = () => {
       );
       window.confirmationResult = confirmationResult;
       setIsOtpSent(true);
-      setErrorMessage(""); // Clear error
+      setErrorMessage("");
       console.log("OTP sent successfully!");
     } catch (error) {
       console.error("Error sending OTP:", error);
-      setErrorMessage("Failed to send OTP. Please try again.");
+      switch (error.code) {
+        case "auth/invalid-phone-number":
+          setErrorMessage("Invalid phone number format.");
+          break;
+        case "auth/quota-exceeded":
+          setErrorMessage("SMS quota exceeded. Please try again later.");
+          break;
+        case "auth/recaptcha-not-verified":
+          setErrorMessage("Recaptcha verification failed.");
+          break;
+        default:
+          setErrorMessage("Failed to send OTP. Please try again.");
+      }
     }
   };
 

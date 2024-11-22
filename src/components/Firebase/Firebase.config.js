@@ -26,10 +26,17 @@ export const db = getFirestore(app);
 export const auth = getAuth(app);
 
 export const setupRecaptcha = (containerId) => {
-    window.recaptchaVerifier = new RecaptchaVerifier(containerId, {
-      size: "invisible",
+  window.recaptchaVerifier = new RecaptchaVerifier(
+    containerId,
+    {
+      size: "invisible", // Use 'normal' if you want the Recaptcha to be visible
       callback: (response) => {
-        console.log("Recaptcha verified:", response);
+        console.log("Recaptcha verified successfully!");
       },
-    }, auth);
-  };
+      "expired-callback": () => {
+        console.error("Recaptcha expired. Please refresh the page.");
+      },
+    },
+    auth
+  );
+};
