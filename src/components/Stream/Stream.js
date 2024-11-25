@@ -1,20 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { io } from 'socket.io-client';
-import './Stream.css';
+import React, { useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
+import { io } from "socket.io-client";
+import "./Stream.css";
 
-const Stream = ({ userSubscription }) => {
+const Stream = () => {
   const { gameId } = useParams();
-  const [showAd, setShowAd] = useState(userSubscription === 'free');
   const videoRef = useRef(null);
-  const adVideoRef = useRef(null);
-
-  const startGameSession = () => setShowAd(false);
+  const socketRef = useRef(null);
+  const peerConnectionRef = useRef(null);
 
   useEffect(() => {
-    if (!showAd) {
-      const socket = io("ws://your-backend-url:8765"); // Replace with actual URL
+    const setupWebRTC = async () => {
+      socketRef.current = io("http://3.111.40.23:5000"); // Adjust backend URL if needed
+
       const peerConnection = new RTCPeerConnection();
+
+      peerConnectionRef.current = peerConnection;
 
       peerConnection.ontrack = (event) => {
         if (videoRef.current) {
@@ -22,40 +23,37 @@ const Stream = ({ userSubscription }) => {
         }
       };
 
-      socket.on("offer", async (offer) => {
+      socketRef.current.on("offer", async (offer) => {
         await peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
         const answer = await peerConnection.createAnswer();
         await peerConnection.setLocalDescription(answer);
-        socket.emit("answer", { sdp: answer.sdp, type: answer.type });
+        socketRef.current.emit("answer", peerConnection.localDescription);
       });
 
-      return () => {
-        socket.disconnect();
-        peerConnection.close();
-      };
-    }
-  }, [showAd, gameId]);
+      socketRef.current.on("iceCandidate", async (candidate) => {
+        if (candidate) {
+          try {
+            await peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
+          } catch (error) {
+            console.error("Failed to add ICE candidate:", error);
+          }
+        }
+      });
+
+      socketRef.current.emit("startGame", { gameId });
+    };
+
+    setupWebRTC();
+
+    return () => {
+      if (socketRef.current) socketRef.current.disconnect();
+      if (peerConnectionRef.current) peerConnectionRef.current.close();
+    };
+  }, [gameId]);
 
   return (
     <div className="stream-container">
-      {showAd ? (
-        <div className="ad-container">
-          <video
-            ref={adVideoRef}
-            src="/video/hero-video.mp4"
-            width="100%"
-            height="auto"
-            autoPlay
-            muted
-            playsInline
-            onEnded={startGameSession}
-          />
-        </div>
-      ) : (
-        <div className="game-player">
-          <video ref={videoRef} width="100%" height="auto" autoPlay playsInline controls />
-        </div>
-      )}
+      <video ref={videoRef} className="game-video" autoPlay playsInline controls />
     </div>
   );
 };

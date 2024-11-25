@@ -3,8 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, RecaptchaVerifier } from "firebase/auth";
 import './.env';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -25,18 +23,24 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 
+// Function to set up the invisible reCAPTCHA
 export const setupRecaptcha = (containerId) => {
   window.recaptchaVerifier = new RecaptchaVerifier(
-    containerId,
+    containerId, // This is the container element for Recaptcha
     {
-      size: "invisible", // Use 'normal' if you want the Recaptcha to be visible
+      size: "invisible", // Make it invisible
       callback: (response) => {
-        console.log("Recaptcha verified successfully!");
+        // This will get called when Recaptcha is successfully verified
+        console.log("Recaptcha verified:", response);
       },
       "expired-callback": () => {
-        console.error("Recaptcha expired. Please refresh the page.");
+        // Handle the expired case
+        console.log("Recaptcha expired. Please refresh the page.");
       },
     },
-    auth
+    getAuth() // Initialize Firebase Authentication instance
   );
+
+  // Render the recaptcha into the container
+  window.recaptchaVerifier.render();
 };

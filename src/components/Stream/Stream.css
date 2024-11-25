@@ -1,40 +1,27 @@
-/* Stream.css */
-
+/* General container for the stream */
 .stream-container {
-    padding: 40px 20px;
-    background-color: #121212;
-    color: #ffffff;
-    text-align: center;
-    min-height: calc(105vh - 150px); /* Adjust based on Navbar and Footer height */
-  }
-  
-  .stream-container h2 {    
-    font-size: 2rem;
-    color: #f39c12;
-    margin-bottom: 20px;
-  }
-  
-  .game-player {
-    margin-top: 0px;
-  }
-  
-  .game-player iframe {
-    border-radius: 10px;
-  }
-  
-  .fullscreen-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .fullscreen-button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #1e1e1e; /* Dark background for better contrast */
+  color: #ffffff; /* Default font color */
+}
+
+/* Wrapper for the video element */
+.video-wrapper {
+  max-width: 80%; /* Restrict the width to 80% of the viewport */
+  max-height: 80%; /* Restrict the height to 80% of the viewport */
+  border: 2px solid #4caf50; /* Green border for a gaming look */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Ensure video doesn't overflow */
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8); /* Subtle shadow for depth */
+}
+
+/* The video player */
+.game-video {
+  width: 100%; /* Full width of the wrapper */
+  height: 100%; /* Full height of the wrapper */
+  background-color: #000; /* Black background for the video */
+  outline: none; /* Remove focus outline */
+}
