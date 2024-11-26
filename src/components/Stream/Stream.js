@@ -11,7 +11,7 @@ const Stream = () => {
 
   useEffect(() => {
     const setupWebRTC = async () => {
-      socketRef.current = io("ws://3.111.40.23:5000"); // Adjust backend URL if needed
+      socketRef.current = io("ws://3.111.38.244:5000"); // Adjust backend URL if needed
 
       const peerConnection = new RTCPeerConnection();
 
